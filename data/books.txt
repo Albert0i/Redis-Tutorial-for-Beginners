@@ -25,3 +25,25 @@ DEL books:3
 DEL books:4
 DEL books:5
 DEL books:6
+
+
+JSON.SET authors:1 $ '{
+    "name": "Brandon Sanderson",
+    "age": 55,
+    "books": [
+        { "title": "The Final Empire", "rating": 10 }, 
+        { "title": "The Way of Kings", "rating": 9 } 
+    ]}'
+
+JSON.GET authors:1
+
+JSON.GET authors:1 $.name
+
+JSON.GET authors:1 $.books
+
+JSON.GET authors:1 $.books[0]
+
+JSON.GET authors:1 $.books[0].title
+JSON.GET authors:1 $.books[0].rating
+
+JSON.SET authors:1 $.books[0].rating 7
