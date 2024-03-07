@@ -1,4 +1,4 @@
-# Redis-Tutorial-for-Beginners" 
+# Redis-Tutorial-for-Beginners
 
 In the pre-SQL era, database organization and access methods were quite different from what we are familiar with today. Various approaches were used to store and access data, each with its own advantages and limitations. Here is a summary of database organization and access methods from the pre-SQL era:
 
