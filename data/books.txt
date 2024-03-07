@@ -17,6 +17,21 @@ HSET books:5 title "The War of the Worlds" rating 7  author "H.G. Wells" blurb "
 ZADD books NX 6 "The Picture of Dorian Gray"
 HSET books:6 title "The Picture of Dorian Gray" rating 7  author "Oscar Wilde" blurb "A class fiction of longevity"  
 
+FT.CREATE books:index:hash 
+    ON HASH 
+    PREFIX 1 books:
+	SCHEMA 
+    title TEXT WEIGHT 5.0
+    rating TAG
+    author TAG
+    blurb TEXT 
+	
+FT.INFO books:index:hash
+FT.SEARCH books:index:hash '@rating:{7|8}'
+FT.SEARCH books:index:hash '@author:{Edgar Allan Poe}'
+FT.SEARCH books:index:hash '@title:(complete)'
+FT.SEARCH books:index:hash '@blurb:(last)'
+FT.SEARCH books:index:hash '@blurb:(the)'
 
 DEL books
 DEL books:1
@@ -25,6 +40,14 @@ DEL books:3
 DEL books:4
 DEL books:5
 DEL books:6
+FT.DROPINDEX books:index:hash
+
+
+
+
+
+
+
 
 
 JSON.SET authors:1 $ '{
